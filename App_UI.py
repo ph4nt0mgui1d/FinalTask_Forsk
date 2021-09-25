@@ -10,6 +10,7 @@ import pickle
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+# from dash import html
 import dash_bootstrap_components as dbc
 import pandas as pd
 import webbrowser
@@ -52,7 +53,7 @@ def create_app_ui():
                 [
                     html.H1(id = 'heading', children = project_name, className = 'display-3 mb-4'),
                     
-                    dbc.Textarea(id = 'textarea', className="mb-3", placeholder="Enter the Review", value = 'My daughter loves these shoes', style = {'height': '150px'}),
+                    dbc.Textarea(id = 'textarea', className="mb-3", placeholder="Enter the Review", value = 'I hate the delivery.', style = {'height': '150px'}),
                     
                     dbc.Container([
                         dcc.Dropdown(
@@ -125,7 +126,7 @@ def main():
     open_browser()
     app.layout = create_app_ui()
     app.title = project_name
-    app.run_server()
+    app.run_server(host = '0.0.0.0', port = 8050)
     app = None
     project_name = None
 if __name__ == '__main__':
